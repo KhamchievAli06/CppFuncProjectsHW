@@ -40,4 +40,31 @@ int main() {
 	cout << summ;
 }
 
-
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "");
+	int const SIZE = 12;
+	int arr[SIZE];
+	int min, max;
+	for (int i = 0; i < SIZE;i++) {
+		cout << "Введите прибыль фирмы за " << i + 1 << " месяц: ";
+		cin >> arr[i];
+	}
+	cout << "Введите диапозон: ";
+	cin >> min >> max;
+	if (min > max) swap(min, max);
+	if (min > 12 && min < 1 || max > 12 && max < 1) {
+		cout << "не корректно введён диапозон" << "\n";
+		while (min <= 12 && min >= 1 && max <= 12 && max >= 1) {
+			cout << "Введите диапозон ещё раз: ";
+			cin >> min >> max;
+		}
+	}
+	int min1 = arr[SIZE], max1 = arr[SIZE];
+	for (int i = min; i < max; i++) {
+		if (arr[i] < min1) min1 = arr[i];
+		if (arr[i] > max1) max1 = arr[i];
+	}
+	cout << "min = " << min1 << "; max = " << max1;
+}
