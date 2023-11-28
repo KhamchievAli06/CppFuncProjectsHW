@@ -1,5 +1,3 @@
-/*В одномерном массиве, заполненном случайными числами,
-определить минимальный и максимальный элементы.*/
 #include <iostream>
 using namespace std;
 int main() {
@@ -54,17 +52,16 @@ int main() {
 	cout << "Введите диапозон: ";
 	cin >> min >> max;
 	if (min > max) swap(min, max);
-	if (min > 12 && min < 1 || max > 12 && max < 1) {
+	if (min > 12 || min < 1 || max > 12 || max < 1) {
 		cout << "не корректно введён диапозон" << "\n";
-		while (min <= 12 && min >= 1 && max <= 12 && max >= 1) {
-			cout << "Введите диапозон ещё раз: ";
-			cin >> min >> max;
-		}
 	}
-	int min1 = arr[SIZE], max1 = arr[SIZE];
-	for (int i = min; i < max; i++) {
-		if (arr[i] < min1) min1 = arr[i];
-		if (arr[i] > max1) max1 = arr[i];
-	}
-	cout << "min = " << min1 << "; max = " << max1;
+	else{
+    	int min1 = arr[SIZE], max1 = arr[SIZE];
+    	for (int i = min; i < max; i++) {
+    		if (arr[i - 1] < min1) min1 = arr[i - 1];
+    		if (arr[i] > max1) max1 = arr[i];
+    	}
+    	cout << "min = " << min1 << "; max = " << max1;
+    	}
 }
+
