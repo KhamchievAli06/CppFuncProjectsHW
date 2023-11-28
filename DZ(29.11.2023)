@@ -1,0 +1,47 @@
+/*№1
+Написать программу, копирующую последовательно элементы
+одного массива размером 10 элементов в 2 массива размером
+5 элементов каждый.*/
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "");
+	srand(time(NULL));
+	int const SIZE = 10;
+	int arr1[SIZE], arr2[SIZE], arr3[SIZE];
+	for (int i = 0; i < SIZE; i++) {
+		arr1[i] = rand();
+		cout << arr1[i] << " ";
+	}
+	cout << endl;
+	for (int i = 0; i < 5; i++) {
+		arr2[i] = arr1[i];
+		cout << arr2[i] << " ";
+	}
+	cout << endl;
+	for (int i = 5, j = 0; i < SIZE; i++, j++) {
+		arr3[j] = arr1[i];
+		cout << arr3[j] << " ";
+	}
+}
+
+/*№2
+Напишите программу, которая выполняет поэлементную
+сумму двух массивов и результат заносит в третий массив*/
+#include <iostream>
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "");
+	int const SIZE = 10;
+	int arr1[SIZE], arr2[SIZE], arr3[SIZE];
+	for (int i = 0; i < SIZE; i++) {
+		arr1[i] = 1 + rand() % 10;
+		arr2[i] = 1 + rand() % 10;
+		arr3[i] = arr1[i] + arr2[i];
+		cout << "Первый массив: " << arr1[i] << " ";
+		cout << "Второй массив: " <<  arr2[i] << " ";
+		cout << "Сумма масивов: " <<  arr3[i] << " ";
+		cout << endl;
+	}
+}
+
